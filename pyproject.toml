@@ -9,5 +9,8 @@ dependencies = [
     "python-dotenv",
     "ipykernel",
     "langchain_groq",
-    "langchain_google_genai"
+    "langchain_google_genai",
+    "langchain-community>=0.3.27",
+    "pypdf>=5.8.0",
+    "faiss-cpu>=1.11.0.post1",
 ]
