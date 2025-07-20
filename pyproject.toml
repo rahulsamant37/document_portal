@@ -1,0 +1,13 @@
+[project]
+name = "document-portal"
+version = "0.1.0"
+description = "Add your description here"
+readme = "README.md"
+requires-python = ">=3.12"
+dependencies = [
+    "langchain",
+    "python-dotenv",
+    "ipykernel",
+    "langchain_groq",
+    "langchain_google_genai"
+]
