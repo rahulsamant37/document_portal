@@ -295,8 +295,10 @@ dependencies = [
     { name = "langchain-community" },
     { name = "langchain-google-genai" },
     { name = "langchain-groq" },
+    { name = "pymupdf" },
     { name = "pypdf" },
     { name = "python-dotenv" },
+    { name = "structlog" },
 ]
 
 [package.metadata]
@@ -307,8 +309,10 @@ requires-dist = [
     { name = "langchain-community", specifier = ">=0.3.27" },
     { name = "langchain-google-genai" },
     { name = "langchain-groq" },
+    { name = "pymupdf", specifier = ">=1.26.3" },
     { name = "pypdf", specifier = ">=5.8.0" },
     { name = "python-dotenv" },
+    { name = "structlog", specifier = ">=25.4.0" },
 ]
 
 [[package]]
@@ -1326,6 +1330,21 @@ wheels = [
 ]
 
 [[package]]
+name = "pymupdf"
+version = "1.26.3"
+source = { registry = "https://pypi.org/simple" }
+sdist = { url = "https://files.pythonhosted.org/packages/6d/d4/70a265e4bcd43e97480ae62da69396ef4507c8f9cfd179005ee731c92a04/pymupdf-1.26.3.tar.gz", hash = "sha256:b7d2c3ffa9870e1e4416d18862f5ccd356af5fe337b4511093bbbce2ca73b7e5", size = 75990308, upload-time = "2025-07-02T21:34:22.243Z" }
+wheels = [
+    { url = "https://files.pythonhosted.org/packages/70/d3/c7af70545cd3097a869fd635bb6222108d3a0fb28c0b8254754a126c4cbb/pymupdf-1.26.3-cp39-abi3-macosx_10_9_x86_64.whl", hash = "sha256:ded891963944e5f13b03b88f6d9e982e816a4ec8689fe360876eef000c161f2b", size = 23057205, upload-time = "2025-07-02T21:26:16.326Z" },
+    { url = "https://files.pythonhosted.org/packages/04/3d/ec5b69bfeaa5deefa7141fc0b20d77bb20404507cf17196b4eb59f1f2977/pymupdf-1.26.3-cp39-abi3-macosx_11_0_arm64.whl", hash = "sha256:436a33c738bb10eadf00395d18a6992b801ffb26521ee1f361ae786dd283327a", size = 22406630, upload-time = "2025-07-02T21:27:10.112Z" },
+    { url = "https://files.pythonhosted.org/packages/fc/20/661d3894bb05ad75ed6ca103ee2c3fa44d88a458b5c8d4a946b9c0f2569b/pymupdf-1.26.3-cp39-abi3-manylinux_2_28_aarch64.whl", hash = "sha256:a2d7a3cd442f12f05103cb3bb1415111517f0a97162547a3720f3bbbc5e0b51c", size = 23450287, upload-time = "2025-07-03T07:22:19.317Z" },
+    { url = "https://files.pythonhosted.org/packages/9c/7f/21828f018e65b16a033731d21f7b46d93fa81c6e8257f769ca4a1c2a1cb0/pymupdf-1.26.3-cp39-abi3-manylinux_2_28_x86_64.whl", hash = "sha256:454f38c8cf07eb333eb4646dca10517b6e90f57ce2daa2265a78064109d85555", size = 24057319, upload-time = "2025-07-02T21:28:26.697Z" },
+    { url = "https://files.pythonhosted.org/packages/71/5d/e8f88cd5a45b8f5fa6590ce8cef3ce0fad30eac6aac8aea12406f95bee7d/pymupdf-1.26.3-cp39-abi3-musllinux_1_2_x86_64.whl", hash = "sha256:759b75d2f710ff4edf8d097d2e98f60e9ecef47632cead6f949b3412facdb9f0", size = 24261350, upload-time = "2025-07-02T21:29:21.733Z" },
+    { url = "https://files.pythonhosted.org/packages/82/22/ecc560e4f281b5dffafbf3a81f023d268b1746d028044f495115b74a2e70/pymupdf-1.26.3-cp39-abi3-win32.whl", hash = "sha256:a839ed44742faa1cd4956bb18068fe5aae435d67ce915e901318646c4e7bbea6", size = 17116371, upload-time = "2025-07-02T21:30:23.253Z" },
+    { url = "https://files.pythonhosted.org/packages/4a/26/8c72973b8833a72785cedc3981eb59b8ac7075942718bbb7b69b352cdde4/pymupdf-1.26.3-cp39-abi3-win_amd64.whl", hash = "sha256:b4cd5124d05737944636cf45fc37ce5824f10e707b0342efe109c7b6bd37a9cc", size = 18735124, upload-time = "2025-07-02T21:31:10.992Z" },
+]
+
+[[package]]
 name = "pypdf"
 version = "5.8.0"
 source = { registry = "https://pypi.org/simple" }
@@ -1525,6 +1544,15 @@ dependencies = [
 sdist = { url = "https://files.pythonhosted.org/packages/28/e3/55dcc2cfbc3ca9c29519eb6884dd1415ecb53b0e934862d3559ddcb7e20b/stack_data-0.6.3.tar.gz", hash = "sha256:836a778de4fec4dcd1dcd89ed8abff8a221f58308462e1c4aa2a3cf30148f0b9", size = 44707, upload-time = "2023-09-30T13:58:05.479Z" }
 wheels = [
     { url = "https://files.pythonhosted.org/packages/f1/7b/ce1eafaf1a76852e2ec9b22edecf1daa58175c090266e9f6c64afcd81d91/stack_data-0.6.3-py3-none-any.whl", hash = "sha256:d5558e0c25a4cb0853cddad3d77da9891a08cb85dd9f9f91b9f8cd66e511e695", size = 24521, upload-time = "2023-09-30T13:58:03.53Z" },
+]
+
+[[package]]
+name = "structlog"
+version = "25.4.0"
+source = { registry = "https://pypi.org/simple" }
+sdist = { url = "https://files.pythonhosted.org/packages/79/b9/6e672db4fec07349e7a8a8172c1a6ae235c58679ca29c3f86a61b5e59ff3/structlog-25.4.0.tar.gz", hash = "sha256:186cd1b0a8ae762e29417095664adf1d6a31702160a46dacb7796ea82f7409e4", size = 1369138, upload-time = "2025-06-02T08:21:12.971Z" }
+wheels = [
+    { url = "https://files.pythonhosted.org/packages/a0/4a/97ee6973e3a73c74c8120d59829c3861ea52210667ec3e7a16045c62b64d/structlog-25.4.0-py3-none-any.whl", hash = "sha256:fe809ff5c27e557d14e613f45ca441aabda051d119ee5a0102aaba6ce40eed2c", size = 68720, upload-time = "2025-06-02T08:21:11.43Z" },
 ]
 
 [[package]]
