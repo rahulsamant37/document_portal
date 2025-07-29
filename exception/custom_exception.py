@@ -7,10 +7,18 @@ class DocumentPortalException(Exception):
     """Custom exception for Document Portal"""
     def __init__(self,error_message):
         _,_,exc_tb= sys.exc_info()
-        self.file_name=exc_tb.tb_frame.f_code.co_filename
-        self.lineno=exc_tb.tb_lineno
-        self.error_message=str(error_message)
-        self.traceback_str = ''.join(traceback.format_exception(*sys.exc_info())) 
+        # If exc_tb is None (no active exception), get the current frame info
+        if exc_tb is None:
+            current_frame = sys._getframe(1)  # Get the caller's frame
+            self.file_name = current_frame.f_code.co_filename
+            self.lineno = current_frame.f_lineno
+            self.traceback_str = f"Exception raised at {self.file_name}:{self.lineno}"
+        else:
+            self.file_name = exc_tb.tb_frame.f_code.co_filename
+            self.lineno = exc_tb.tb_lineno
+            self.traceback_str = ''.join(traceback.format_exception(*sys.exc_info()))
+            
+        self.error_message = str(error_message) 
         
     def __str__(self):
        return f"""
