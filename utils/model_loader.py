@@ -41,7 +41,7 @@ class ModelLoader:
         Validate necessary environment variables.
         Ensure API keys exist.
         """
-        required_vars=["GOOGLE_API_KEY","GROQ_API_KEY"]
+        required_vars=["GOOGLE_API_KEY"]
         self.api_keys={key:os.getenv(key) for key in required_vars}
         missing = [k for k, v in self.api_keys.items() if not v]
         if missing:
@@ -71,7 +71,7 @@ class ModelLoader:
 
         logger.info("Loading LLM...")
         
-        provider_key = os.getenv("LLM_PROVIDER", "groq")  # Default groq
+        provider_key = os.getenv("LLM_PROVIDER", "google")  # Default google
         if provider_key not in llm_block:
             logger.error("LLM provider not found in config", provider_key=provider_key)
             raise ValueError(f"Provider '{provider_key}' not found in config")
