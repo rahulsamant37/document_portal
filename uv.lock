@@ -298,6 +298,7 @@ dependencies = [
     { name = "pymupdf" },
     { name = "pypdf" },
     { name = "python-dotenv" },
+    { name = "pyyaml" },
     { name = "structlog" },
 ]
 
@@ -312,6 +313,7 @@ requires-dist = [
     { name = "pymupdf", specifier = ">=1.26.3" },
     { name = "pypdf", specifier = ">=5.8.0" },
     { name = "python-dotenv" },
+    { name = "pyyaml", specifier = ">=6.0.2" },
     { name = "structlog", specifier = ">=25.4.0" },
 ]
 

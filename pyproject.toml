@@ -15,4 +15,5 @@ dependencies = [
     "faiss-cpu>=1.11.0.post1",
     "structlog>=25.4.0",
     "pymupdf>=1.26.3",
+    "pyyaml>=6.0.2",
 ]
