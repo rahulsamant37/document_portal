@@ -16,4 +16,5 @@ dependencies = [
     "structlog>=25.4.0",
     "pymupdf>=1.26.3",
     "pyyaml>=6.0.2",
+    "pandas>=2.3.1",
 ]
