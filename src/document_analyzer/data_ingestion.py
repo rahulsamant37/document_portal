@@ -2,7 +2,7 @@ import os
 import fitz
 import sys
 import uuid
-from datetime import datetime
+from datetime import datetime, timezone
 from logger.custom_logger import CustomLogger
 from exception.custom_exception import DocumentPortalException
 
@@ -18,7 +18,7 @@ class DocumentHandler:
                 "DATA_STORAGE_PATH",
                 os.path.join(os.getcwd(), "data", "document_analysis")
             )
-            self.session_id = session_id or f"session_{datetime.utcnow().strftime('%Y%m%d_%H%M%S')}_{uuid.uuid4().hex[:8]}"
+            self.session_id = session_id or f"session_{datetime.now(timezone.utc).strftime('%Y%m%d_%H%M%S')}_{uuid.uuid4().hex[:8]}"
             
             # Create base session directory
             self.session_path = os.path.join(self.data_dir, self.session_id)
@@ -50,7 +50,7 @@ class DocumentHandler:
         
         except Exception as e:
             self.log.error(f"Error saving PDF: {e}")
-            raise DocumentPortalException("Error saving PDF", e) from e
+            raise DocumentPortalException("Error saving PDF", sys) from e
 
     def read_pdf(self, pdf_path:str)->str:
         try:
@@ -64,13 +64,12 @@ class DocumentHandler:
             return text
         except Exception as e:
             self.log.error(f"Error reading PDF: {e}")
-            raise DocumentPortalException("Error reading PDF", e) from e
+            raise DocumentPortalException("Error reading PDF", sys) from e
     
 if __name__ == "__main__":
     from pathlib import Path
     from io import BytesIO
-    
-    pdf_path=r"C:\\Users\\sunny\\document_portal\\data\\document_analysis\\sample.pdf"
+    pdf_path=r"D:\document_portal\data\document_analysis\2407.01502v1.pdf"
     class DummnyFile:
         def __init__(self,file_path):
             self.name = Path(file_path).name
