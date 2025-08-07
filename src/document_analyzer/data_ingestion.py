@@ -1,10 +1,25 @@
+
 import os
-import fitz
 import sys
 import uuid
+import fitz # PyMuPDF
+# from io import BytesIO
+from pathlib import Path
 from datetime import datetime, timezone
+
+
 from logger.custom_logger import CustomLogger
 from exception.custom_exception import DocumentPortalException
+
+class DummyFile:
+    """
+    A dummy file-like object for testing purposes.
+    """
+    def __init__(self,file_path):
+        self.name = Path(file_path).name
+        self._file_path = file_path
+    def getbuffer(self):
+        return open(self._file_path, "rb").read()
 
 class DocumentHandler:
     """
@@ -67,17 +82,10 @@ class DocumentHandler:
             raise DocumentPortalException("Error reading PDF", sys) from e
     
 if __name__ == "__main__":
-    from pathlib import Path
-    from io import BytesIO
+    
     pdf_path=r"D:\document_portal\data\document_analysis\2407.01502v1.pdf"
-    class DummnyFile:
-        def __init__(self,file_path):
-            self.name = Path(file_path).name
-            self._file_path = file_path
-        def getbuffer(self):
-            return open(self._file_path, "rb").read()
         
-    dummy_pdf = DummnyFile(pdf_path)
+    dummy_pdf = DummyFile(pdf_path)
     
     handler = DocumentHandler()
     
