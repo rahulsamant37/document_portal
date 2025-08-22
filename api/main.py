@@ -17,7 +17,7 @@ from src.document_compare.document_comparator import DocumentComparatorLLM
 from src.document_chat.retrieval import ConversationalRAG
 from utils.document_ops import FastAPIFileAdapter,read_pdf_via_handler
 from logger import GLOBAL_LOGGER as log
-from exception.custom_exception import DocumentPortalException
+# from exception.custom_exception import DocumentPortalException
 
 FAISS_BASE = os.getenv("FAISS_BASE", "faiss_index")
 UPLOAD_BASE = os.getenv("UPLOAD_BASE", "data")
@@ -198,5 +198,5 @@ async def chat_query(
         raise HTTPException(status_code=500, detail=f"Query failed: {e}")
 
 # command for executing the fast api
-# uvicorn api.main:app --port 8080 --reload    
-#uvicorn api.main:app --host 0.0.0.0 --port 8080 --reload
+# uvicorn api.main:app --port 8000 --reload    
+#uvicorn api.main:app --host 0.0.0.0 --port 8000 --reload
