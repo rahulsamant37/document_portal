@@ -23,4 +23,5 @@ dependencies = [
     "uvicorn>=0.35.0",
     "python-multipart>=0.0.20",
     "plotly>=6.3.0",
+    "setuptools>=80.9.0",
 ]
