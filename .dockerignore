@@ -30,7 +30,7 @@ MANIFEST
 
 # Virtual environments
 .env
-.venv
+.venv/
 env/
 venv/
 ENV/
@@ -49,6 +49,8 @@ Thumbs.db
 # Jupyter Notebook checkpoints
 .ipynb_checkpoints
 notebook/.ipynb_checkpoints/
+# Large notebook files that slow down security scanning
+notebook/experiments.ipynb
 
 # Logs and temporary files
 logs/

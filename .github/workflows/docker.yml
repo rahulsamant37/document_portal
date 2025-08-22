@@ -83,6 +83,8 @@ jobs:
         image-ref: ${{ env.REGISTRY }}/${{ env.IMAGE_NAME }}:latest
         format: 'sarif'
         output: 'trivy-results.sarif'
+        scanners: 'vuln'
+        skip-files: '**/*.ipynb,**/*.js.map,**/node_modules/**'
     
     - name: Upload Trivy scan results to GitHub Security tab
       uses: github/codeql-action/upload-sarif@v3
