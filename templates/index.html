@@ -156,8 +156,10 @@
   </footer>
 
   <script>
-  // Base URL for API (same origin when opened via FastAPI)
-  const API_BASE = "";
+  // Base URL for API - Update this to point to your FastAPI server
+  // If running FastAPI on localhost:8000, use that URL
+  // If serving this HTML via FastAPI (recommended), use empty string
+  const API_BASE = "http://localhost:8000";  // Change this to your FastAPI URL
 
   // Tab switching (unchanged)
   const tabs = document.querySelectorAll(".tab-btn");
