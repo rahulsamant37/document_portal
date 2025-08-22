@@ -4,8 +4,7 @@ on:
   # Trigger on pushes to Rahul branches (major changes)
   push:
     branches:
-      - Rahul-app-dev
-      - feat/practice-Rahul
+      - ci/dev-Rahul-docker
     # Trigger on version tags (semantic versioning)
     tags:
       - 'v*.*.*'
