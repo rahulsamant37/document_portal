@@ -7,9 +7,9 @@ This page handles document chat functionality with RAG capabilities.
 import streamlit as st
 import requests
 import time
-from typing import Dict, Any, Optional, List
+from typing import Any
 
-def make_api_request(endpoint: str, method: str = "GET", files: Optional[Dict] = None, data: Optional[Dict] = None) -> Dict[str, Any]:
+def make_api_request(endpoint: str, method: str = "GET", files: dict | None = None, data: dict | None = None) -> dict[str, Any]:
     """Make API request to backend server"""
     API_BASE_URL = "http://localhost:8000"
     url = f"{API_BASE_URL}{endpoint}"
