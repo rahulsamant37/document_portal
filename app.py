@@ -1,6 +1,7 @@
 from api.main import app
 
-if __name__ == "__main__":
+def main():
+    """Main entry point for the FastAPI application."""
     import uvicorn
     
     uvicorn.run(
@@ -9,3 +10,6 @@ if __name__ == "__main__":
         port=8000,
         reload=True,
     )
+
+if __name__ == "__main__":
+    main()

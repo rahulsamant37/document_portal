@@ -1,9 +1,12 @@
 [project]
 name = "document-portal"
 version = "0.1.0"
-description = "Add your description here"
+description = "This is a RAG (Retrieval-Augmented Generation) system for document querying, allowing users to upload documents and interact with them using natural language queries powered by various AI models."
 readme = "README.md"
 requires-python = ">=3.12"
+authors = [
+    {name = "Rahul Samant"},
+]
 dependencies = [
     "langchain",
     "python-dotenv",
@@ -25,3 +28,45 @@ dependencies = [
     "plotly>=6.3.0",
     "setuptools>=80.9.0",
 ]
+
+[project.optional-dependencies]
+dev = ["mypy>=1.11.1", "ruff>=0.6.1"]
+
+[project.scripts]
+document-portal = "main:main"
+document-portal-api = "app:main"
+
+[build-system]
+requires = ["setuptools>=73.0.0", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[tool.setuptools]
+# Use find packages to automatically discover all packages
+packages = {find = {}}
+
+[tool.setuptools.package-data]
+"*" = ["py.typed", "*.yaml", "*.yml", "*.json", "*.txt", "*.md"]
+
+[tool.ruff]
+lint.select = [
+    "E",    # pycodestyle
+    "F",    # pyflakes
+    "I",    # isort
+    "D",    # pydocstyle
+    "D401", # First line should be in imperative mood
+    "T201",
+    "UP",
+]
+lint.ignore = [
+    "UP006",
+    "UP007",
+    "UP035",
+    "D417",
+    "E501",
+]
+
+[tool.ruff.lint.per-file-ignores]
+"tests/*" = ["D", "UP"]
+
+[tool.ruff.lint.pydocstyle]
+convention = "google"

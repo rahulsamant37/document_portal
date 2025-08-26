@@ -235,3 +235,10 @@ st.markdown(
     """, 
     unsafe_allow_html=True
 )
+
+def main():
+    """Main entry point for the Streamlit application."""
+    pass  # The Streamlit app runs automatically when imported
+
+if __name__ == "__main__":
+    main()
