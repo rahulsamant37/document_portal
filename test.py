@@ -207,3 +207,92 @@ def test_document_ingestion_and_rag():
         
 if __name__ == "__main__":
     test_document_ingestion_and_rag()
+
+# # Use this code snippet in your app.
+# # If you need more information about configurations
+# # or implementing the sample code, visit the AWS docs:
+# # https://aws.amazon.com/developer/language/python/
+
+# # import boto3
+# # from botocore.exceptions import ClientError
+
+
+# # def get_secret():
+
+# #     secret_name = "api_keys"
+# #     region_name = "ap-southeast-2"
+
+# #     # Create a Secrets Manager client
+# #     session = boto3.session.Session()
+# #     client = session.client(
+# #         service_name='secretsmanager',
+# #         region_name=region_name
+# #     )
+
+# #     try:
+# #         get_secret_value_response = client.get_secret_value(
+# #             SecretId=secret_name
+# #         )
+# #     except ClientError as e:
+# #         # For a list of exceptions thrown, see
+# #         # https://docs.aws.amazon.com/secretsmanager/latest/apireference/API_GetSecretValue.html
+# #         raise e
+
+# #     secret = get_secret_value_response['SecretString']
+
+# #     # Your code goes here.
+
+
+
+# {
+#   "family": "documentportaltd",
+#   "networkMode": "awsvpc",
+#   "executionRoleArn": "arn:aws:iam::459497895986:role/ecsTaskExecutionRole",
+#   "requiresCompatibilities": ["FARGATE"],
+#   "cpu": "1024",
+#   "memory": "8192",
+#   "containerDefinitions": [
+#     {
+#       "name": "document-portal-container",
+#       "image": "459497895986.dkr.ecr.ap-southeast-2.amazonaws.com/documentportalliveclass",
+#       "cpu": 1024,
+#       "essential": true,
+#       "portMappings": [
+#         {
+#           "containerPort": 8080,
+#           "hostPort": 8080,
+#           "protocol": "tcp",
+#           "name": "document-portal-container-8080-tcp",
+#           "appProtocol": "http"
+#         }
+#       ],
+#       "environment": [
+#         {
+#           "name": "ENV",
+#           "value": "production"
+#         }
+#       ],
+#       "secrets": [
+#         {
+#           "name": "GROQ_API_KEY",
+#           "valueFrom": "arn:aws:secretsmanager:ap-southeast-2:459497895986:secret:api_keys-nZTtj8"
+#         },
+        
+#         {
+#           "name": "GOOGLE_API_KEY",
+#           "valueFrom": "arn:aws:secretsmanager:ap-southeast-2:459497895986:secret:api_keys-nZTtj8"
+#         }
+        
+#       ],
+#       "logConfiguration": {
+#         "logDriver": "awslogs",
+#         "options": {
+#           "awslogs-group": "/ecs/documentportaltd",
+#           "awslogs-region": "ap-southeast-2",
+#           "awslogs-stream-prefix": "ecs",
+#           "awslogs-create-group": "true"
+#         }
+#       }
+#     }
+#   ]
+# }
