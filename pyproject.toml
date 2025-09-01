@@ -27,6 +27,7 @@ dependencies = [
     "python-multipart>=0.0.20",
     "plotly>=6.3.0",
     "setuptools>=80.9.0",
+    "pytest>=8.4.1",
 ]
 
 [project.optional-dependencies]
